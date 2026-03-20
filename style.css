@@ -126,10 +126,22 @@ body {
     z-index: 1;
 }
 
+.eid {
+    position: absolute;
+    top: 55%;
+    left: -30%;
+    transform: translate(-1%, -5%);
+    
+    width: 1080px;
+    height: 1400px;
+    opacity: 1;
 
-.animate {
-    /* class trigger animasi via JS */
+    animation: galaxyMasuk 3s ease forwards;
+    animation-delay: 3s, 6s;
+
+    z-index: 1;
 }
+
 
 /* ================= GALAXY ================= */
 .galaxy.animate { animation: galaxyMasuk 2.4s ease forwards; }
@@ -147,9 +159,9 @@ body {
 .pattern.animate { animation: patternMasuk 1.8s ease forwards; animation-delay: 0.2s; }
 
 /* ================= AWAN ================= */
-.awan.animate {
-    animation: awanMasuk 1.8s ease forwards; animation-delay: 0.2s; }
-
+.awan.animate { animation: awanMasuk 3s ease forwards, awanJiggling 6s ease-in-out infinite; }
+.awan1.animate { animation: awanMasuk1 3.4s ease forwards, jigglingawan1 5s ease-in-out infinite; }
+.awan2.animate { animation: awanMasuk1 3.4s ease forwards, jigglingawan2 5s ease-in-out infinite; }
 /* ================= LOGO & SMOKE ================= */
 .logo.animate { animation: logoFadeIn 3s ease forwards; animation-delay: 2s; }
 .smoke.animate { animation: logoSmoke 3s ease forwards; animation-delay: 0.5s; }
@@ -166,6 +178,7 @@ body {
 
 /* ================= KEYFRAMES ================= */
 @keyframes slideInLeft { 0% { transform: translateX(-120%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes slideInRight {0% { opacity:0; transform:translateX(-100%); } 100% { opacity:1; transform:translateX(0); } }
 @keyframes galaxyMasuk { 0% { opacity:0; transform:translateX(100%); } 100% { opacity:1; transform:translateX(0); } }
 @keyframes borderSlide { 0% { opacity:0; transform:translateX(-100%); } 100% { opacity:1; transform:translateX(0); } }
 @keyframes kadMasuk { 0% { opacity:0; transform:translate(-50%,200px) scale(0.6); } 60% { opacity:1; transform:translate(-50%,-20px) scale(1.05); } 100% { transform:translate(-50%,0) scale(1); } }
@@ -182,26 +195,16 @@ body {
 /* ================= POPUP QR BUTTON ================= */
 #qrBtn {
     position: fixed;
-    top: -100px; /* start di atas skrin */
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 15px 30px;
-    font-size: 1.8rem;
-    background: linear-gradient(45deg, #FF4500, #FF6347);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
     opacity: 0;
     z-index: 999;
 }
-
-/* animasi popup */
 #qrBtn.show {
     animation: popupFadeSlide 0.5s ease forwards;
 }
-
 @keyframes popupFadeSlide {
     0% { opacity: 0; top: -100px; }
-    100% { opacity: 1; top: 50px; } /* slide turun ke posisi 50px dari atas */
+    100% { opacity: 1; top: 50px; }
 }
